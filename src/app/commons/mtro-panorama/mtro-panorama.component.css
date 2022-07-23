@@ -1,0 +1,18 @@
+.body {
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  height: 100%;
+}
+.title {
+  margin-top: -40px;
+  font-size: 6.5em;
+  white-space: nowrap;
+  font-weight: 300;
+  height: 20%;
+}
+.flex-container {
+  display: flex;
+  flex-flow: row nowrap;
+  height: 85%;
+}

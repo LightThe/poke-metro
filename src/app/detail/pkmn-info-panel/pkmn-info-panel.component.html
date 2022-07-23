@@ -1,0 +1,13 @@
+<app-mtro-panorama title="{{ pkmn.name }}" *ngIf="isLoaded">
+  <app-metro-panel title="general info">
+    <div class="general" >
+      <img src="{{ pkmn.sprites.other.dream_world.front_default }}" />
+      {{ flavorText }}
+    </div>
+    <app-info-list [items]="infos"></app-info-list>
+  </app-metro-panel>
+  <app-metro-panel title="details">
+    <app-mtro-list [items]="details"></app-mtro-list>
+  </app-metro-panel>
+  <app-metro-panel title="abysmal void"> </app-metro-panel>
+</app-mtro-panorama>

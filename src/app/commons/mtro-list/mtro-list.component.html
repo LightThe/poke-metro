@@ -1,0 +1,5 @@
+<ul>
+  <li *ngFor="let item of items">
+    <a (click)="navigate(item.linkTo)">{{ item.title }}</a>
+  </li>
+</ul>

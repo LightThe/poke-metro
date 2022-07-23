@@ -1,0 +1,8 @@
+.general {
+  display: flex;
+  gap: 10px;
+}
+.general > img {
+  width: 30vw;
+  border: 1px solid var(--textcolor);
+}

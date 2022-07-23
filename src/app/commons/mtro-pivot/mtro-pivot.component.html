@@ -1,0 +1,11 @@
+<div class="title">
+  {{title}}
+</div>
+<div class="menubar">
+  <div *ngFor="let menu of menus">
+    {{menu.title}}
+  </div>
+</div>
+<div class="flex-container">
+  <ng-content></ng-content>
+</div>
