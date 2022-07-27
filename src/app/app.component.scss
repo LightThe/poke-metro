@@ -1,25 +1,27 @@
 .content {
-    height: 94vh;
-  }
-  .appbar {
-    height: 6vh;
-    width: 100vw;
-    background-color: var(--accent-color);
-  
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5%;
-  }
-  .appbar > button {
-    border-radius: 50%;
-    width: 32px;
-    height: 32px;
-    background-color: transparent;
-    border: 3px solid black;
-    padding: 3px;
-  }
-  i {
-    background-color: transparent;
-  }
-  
+  height: calc(100vh - 50px);
+}
+
+.appbar {
+  height: 50px;
+  width: 100vw;
+  background-color: var(--accent-color);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5%;
+}
+
+.appbar > button {
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  background-color: transparent;
+  border: 3px solid var(--textcolor);
+  padding: 3px;
+}
+
+i {
+  background-color: transparent;
+}

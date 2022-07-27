@@ -2,17 +2,22 @@
   overflow-x: scroll;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
+
   height: 100%;
 }
 .title {
-  margin-top: -40px;
+  margin-left: 10px;
+  margin-top: -15px;
+  
   font-size: 6.5em;
-  white-space: nowrap;
   font-weight: 300;
-  height: 20%;
+  /* border: 1px solid blue; */
+
+  white-space: nowrap;
+  height: 22%;
 }
 .flex-container {
   display: flex;
   flex-flow: row nowrap;
-  height: 85%;
+  max-height: 78%;
 }

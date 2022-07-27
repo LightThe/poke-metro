@@ -13,6 +13,12 @@ export class PkmnListComponent implements OnInit {
   pkdx: Pokedex = new Pokedex();
   pkmns: MetroItem[] = [];
 
+  menusTeste = [
+    new MetroItem("pokemon"),
+    new MetroItem("types"),
+    new MetroItem("moves"),
+  ]
+
   ngOnInit() {
     const interval = {
       limit: 10,

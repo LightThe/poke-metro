@@ -12,13 +12,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {}
 
-  menusTeste = [
-    new MetroItem("menu1"),
-    new MetroItem("menu2"),
-    new MetroItem("menu3"),
-    new MetroItem("menu4")
-  ]
-
   goback(): void {
     window.history.go(-1);
   }
