@@ -14,6 +14,7 @@ export class MtroPivotComponent implements OnInit {
   @Input() menus: MetroItem[] = [];
 
   ngOnInit() {
+    console.log(this.menus);
   }
 
 }

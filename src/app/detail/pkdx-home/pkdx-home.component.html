@@ -1,7 +1,14 @@
 <app-mtro-panorama title="pokemetro">
-  <app-metro-panel title="information">
-    <app-mtro-list [items]="mainMenu"></app-mtro-list>
+  <app-metro-panel title="pokemon">
+    <app-mtro-list [items]="pokeMenu"></app-mtro-list>
   </app-metro-panel>
-  <app-metro-panel title="favorites"> nothing added </app-metro-panel>
-  <app-metro-panel title="coming soon"> more functionalities i guess </app-metro-panel>
+  <app-metro-panel title="mechanics">
+    <app-mtro-list [items]="mechMenu"></app-mtro-list>
+  </app-metro-panel>
+  <app-metro-panel title="games">
+    <app-mtro-list [items]="gamesMenu"></app-mtro-list>
+  </app-metro-panel>
+  <app-metro-panel title="favorites">
+    coming soon
+  </app-metro-panel>
 </app-mtro-panorama>

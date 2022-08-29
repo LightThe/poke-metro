@@ -2,7 +2,7 @@
   <div class="title">
     {{title}}
   </div>
-  <div class="menubar">
+  <div class="menubar" *ngIf="menus.length > 0">
     <div *ngFor="let menu of menus">
       {{menu.title}}
     </div>

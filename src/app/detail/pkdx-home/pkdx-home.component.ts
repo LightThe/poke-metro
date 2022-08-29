@@ -11,12 +11,25 @@ export class PkdxHomeComponent implements OnInit {
 
   ngOnInit() {}
 
-  mainMenu = [
-    new MetroItem('pokemon', '', '/pokemon'),
-    new MetroItem('items'),
-    new MetroItem('games'),
+  pokeMenu = [
+    new MetroItem('starters', '', '/pokemon'),
+    new MetroItem('by region'),
+    new MetroItem('by generation'),
+    new MetroItem('by type'),
+    new MetroItem('search name'),
+  ];
+
+  mechMenu = [
+    new MetroItem('moves'),
     new MetroItem('types'),
     new MetroItem('abilities'),
-    // new MetroItem('funciona cachorra'),
+    new MetroItem('nature'),
   ];
+
+  gamesMenu = [
+    new MetroItem('main games'),
+    new MetroItem('spin offs'),
+  ]
+
+
 }

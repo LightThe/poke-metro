@@ -1,10 +1,11 @@
 .title{
-  padding-top: 10px;
+  padding-top: 20px;
   padding-left: 15px;
 
   font-size: 1.2em;
   font-weight: 600;
   text-transform: uppercase;
+  color: var(--accent-color);
 }
 .menubar{
   display: flex;
@@ -13,7 +14,7 @@
   font-size: 2.5em;
   overflow-x: hidden;
 
-  padding-top: 5px;
+  padding-top: 10px;
   padding-left: 15px;
 }
 
@@ -22,7 +23,7 @@
 }
 
 .header{
-  height: 20%;
+  max-height: 20%;
 }
 .flex-container {
   overflow-x: scroll;
