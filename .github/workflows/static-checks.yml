@@ -1,0 +1,23 @@
+name: PR Code Analysis
+on: pull_request
+jobs:
+  static-analysis:
+    name: Static Analysis
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint with code style check
+        run: npm run lint
+
+      - name: Type check
+        run: npm run type-check

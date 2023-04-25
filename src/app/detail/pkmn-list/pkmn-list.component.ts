@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import Pokedex from 'pokedex-promise-v2';
+// import Pokedex from 'pokedex-promise-v2';
+import { PokemonClient } from 'pokenode-ts';
 import { MetroItem } from '../../commons/models/metro-item.model';
 
 @Component({
@@ -10,7 +11,6 @@ import { MetroItem } from '../../commons/models/metro-item.model';
 export class PkmnListComponent implements OnInit {
   constructor() {}
 
-  pkdx: Pokedex = new Pokedex();
   pkmns: MetroItem[] = [];
 
   menusTeste = [
@@ -20,16 +20,17 @@ export class PkmnListComponent implements OnInit {
   ]
 
   ngOnInit() {
-    const interval = {
-      limit: 10,
-      offset: 0,
-    };
-    this.pkdx.getPokemonsList(interval).then((response) => {
-      response.results.forEach((item) => {
-        this.pkmns.push(
-          new MetroItem(item.name, '', item.url.replace(/.+(v2)/g, ''))
-        );
-      });
-    });
+    (async () => {
+      const api = new PokemonClient();
+
+      await api
+        .listPokemons()
+        .then((data) => {
+          data.results.forEach((item) => {
+            this.pkmns.push(new MetroItem(item.name, '', item.url.replace(/.+(v2)/g, '')));
+          });
+        })
+        .catch((error) => console.log(error));
+    })();
   }
 }
