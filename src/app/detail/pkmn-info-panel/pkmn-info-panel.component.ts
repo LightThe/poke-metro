@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 // import Pokemon  from 'pokedex-promise-v2';
 import { MetroItem } from '../../commons/models/metro-item.model';
 import { PokemonClient, Pokemon } from 'pokenode-ts';
+import { asyncScheduler } from 'rxjs';
 
 @Component({
   selector: 'app-pkmn-info-panel',
@@ -28,8 +29,6 @@ export class PkmnInfoPanelComponent implements OnInit {
 
   ngOnInit() {
     this.id = (this.route.snapshot.paramMap.get('id'))!;
-    console.log("loaded pokemon: "+this.id);
-
     (async () => {
       const api = new PokemonClient();
 
@@ -37,37 +36,33 @@ export class PkmnInfoPanelComponent implements OnInit {
         .getPokemonById(Number(this.id))
         .then((data) => {
           this.pkmn = data;
+          this.fillPkmnInfo();
+      })
+      this.isLoaded = true;
+    })();
+  }
 
-          this.pkmn.types.forEach((type) => {
-            this.types = this.types == '' ? type.type.name : this.types + '+' + type.type.name
-          });
+  fillPkmnInfo(): void{
+    (async () => {
+      const pkcli = new PokemonClient();
 
-        })
-    })
+      await pkcli.getPokemonSpeciesById(Number(this.id))
+      .then((data)=>{
+        const ftFilter = data.flavor_text_entries.filter((item) => {
+          return item.language.name === 'en';
+        });
+        this.flavorText = ftFilter[0].flavor_text;
+      })
 
-    // this.pkdx.getPokemonByName(Number(this.id)).then((res: any) => {
-    //   this.pkmn = res as Pokedex.Pokemon;
-
-    //   this.pkmn.types.forEach((type: Pokedex.PokemonType) => {
-    //     this.types =
-    //       this.types == '' ? type.type.name : this.types + '+' + type.type.name;
-    //   });
-
-    //   this.pkdx.getPokemonSpeciesByName(this.id).then((res: any) => {
-    //     const response = res as Pokedex.PokemonSpecies;
-    //     const flavor_filter = response.flavor_text_entries.filter((item: Pokedex.PokemonSpeciesFlavorTextEntry) => {
-    //       return item.language.name === 'en' && item.version.name === 'sword';
-    //     });
-    //     this.flavorText = flavor_filter[0].flavor_text;
-    //   });
-
-    //   this.infos = [
-    //     new MetroItem('types', this.types),
-    //     new MetroItem('height', this.pkmn.height / 10 + 'm'),
-    //     new MetroItem('weight', this.pkmn.weight / 10 + 'kg'),
-    //     new MetroItem('base experience yield', this.pkmn.base_experience + ''),
-    //   ];
-    //   this.isLoaded = true;
-    // });
+    })();
+    this.pkmn.types.forEach((type) => {
+      this.types = this.types == '' ? type.type.name : this.types + '+' + type.type.name
+    });
+    this.infos = [
+      new MetroItem('types', this.types),
+      new MetroItem('height', this.pkmn.height / 10 + 'm'),
+      new MetroItem('weight', this.pkmn.weight / 10 + 'kg'),
+      new MetroItem('base experience yield', this.pkmn.base_experience + ''),
+    ];
   }
 }

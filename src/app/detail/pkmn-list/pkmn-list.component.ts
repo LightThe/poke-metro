@@ -20,10 +20,6 @@ export class PkmnListComponent implements OnInit {
   ]
 
   ngOnInit() {
-    const interval = {
-      limit: 10,
-      offset: 0,
-    };
     (async () => {
       const api = new PokemonClient();
 
@@ -36,12 +32,5 @@ export class PkmnListComponent implements OnInit {
         })
         .catch((error) => console.log(error));
     })();
-    // this.pkdx.getPokemonsList(interval).then((response) => {
-    //   response.results.forEach((item) => {
-    //     this.pkmns.push(
-    //       new MetroItem(item.name, '', item.url.replace(/.+(v2)/g, ''))
-    //     );
-    //   });
-    // });
   }
 }
